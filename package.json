@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server && parcel serve src/index.html --open",
+    "start": "parcel serve src/index.html --open",
     "test": "jest"
   },
   "keywords": [],
@@ -26,3 +26,6 @@
     "uuidv4": "^6.2.13"
   }
 }
+
+
+
