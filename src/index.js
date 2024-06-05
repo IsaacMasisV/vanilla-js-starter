@@ -1,37 +1,44 @@
 // Inserte el código aquí
+const input = document.querySelector("input");
+const agregarBtn = document.querySelector(".agg-Btn");
+const ul = document.querySelector("ul");
+const empty = document.querySelector(".empty");
 
-let lista = document.getElementById('lista1') 
-let texto = document.getElementById('inputs')
-let boton = document.getElementById("btn")
+agregarBtn.addEventListener("click", (e) => {
+  e.preventDefault();
 
-boton.addEventListener('click',()=>{
+  const text = input.value;
+
+  if (text !== "") {
     
-    let bts = document.createElement("p")
-    bts.textContent=texto.value
+    const p = document.createElement("p");
+    p.textContent = text;
 
-    lista.appendChild(bts)
+  
+    p.appendChild(addDeleteBtn());
+    ul.appendChild(p);
 
-    let caja = document.createElement("input");
-    caja.type= "checkbox"
+    input.value = "";
     
-    bts.appendChild(caja)
- 
-    let bor = document.createElement("button");
-    bor.textContent= "Q"
+  }
+});
 
-    bts.appendChild(bor)
+function addDeleteBtn() {
+  const deleteBtn = document.createElement("button");
 
+  deleteBtn.textContent = "X";
+  deleteBtn.className = "btn-delete";
 
+  deleteBtn.addEventListener("click", (e) => {
+    const item = e.target.parentElement;
+    ul.removeChild(item);
 
+    const items = document.querySelectorAll("p");
 
+    if (items.length === 0) {
+     
+    }
+  });
 
-    
-
-   
-
-
-
-})
-
-
-
+  return deleteBtn;
+}
