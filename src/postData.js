@@ -1,8 +1,8 @@
 //post//
-
+import { postFuntion } from ".";
 async function enviarDatos() {
     let tarea = {
-        nombre:"Tarea 1",
+        nombre: input.value,
         estado: false
     }
     try {
@@ -19,7 +19,7 @@ async function enviarDatos() {
         const data = await response.json();
         console.log('Tarea enviada:', data);
     } catch (error) {
-        console.error('Error al enviar la tarea:', error);
+        console.error('Error al enviar tarea:', error);
     }
 
 
@@ -28,4 +28,5 @@ async function enviarDatos() {
 
 
 import {addBtn} from ".";
+
 export {enviarDatos}
