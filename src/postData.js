@@ -1,6 +1,7 @@
 //post//
-import { postFuntion } from ".";
-async function enviarDatos() {
+
+export async function enviarDatos(input) {
+
     let tarea = {
         nombre: input.value,
         estado: false
@@ -25,8 +26,3 @@ async function enviarDatos() {
 
 }
 
-
-
-import {addBtn} from ".";
-
-export {enviarDatos}

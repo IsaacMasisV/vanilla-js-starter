@@ -3,7 +3,6 @@ const addBtn = document.querySelector(".agg-Btn");//boton de agregar
 const ul = document.querySelector("ul");//esta es la lista donde van las tareas
 const empty = document.querySelector(".empty");//este es el texto cuando no hay tareas
 export const postFuntion = input.value 
-
 import { obtenerTareas } from "./linkappi";
 import { enviarDatos } from "./postData";
 import { getTareas } from "./getData";
@@ -11,7 +10,7 @@ import { borrarData } from "./deleteData";
 
 
 //funcion para que aparescan las tareas en la lista
-addBtn.addEventListener("click", (e) => {
+addBtn.addEventListener("click", async(e) => {
   e.preventDefault();//prevencion para que no se recargue la pagina
 
 
@@ -19,23 +18,31 @@ addBtn.addEventListener("click", (e) => {
   
   
   if (text !== "") {
-    await enviarDatos()
-    const li = document.createElement("li");//constante de la lista
-    const p = document.createElement("p");//parrafo que va adentro de la lista
-    p.textContent = text;
+    await enviarDatos(input)
+    crearElem()
     
-  li.appendChild(p);
-  li.appendChild(addDeleteBtn());
-  ul.appendChild(li);
-  
-  
-  input.value = "";
-  empty.style.display = "none";
-  }
-});
+    input.value = "";
+    empty.style.display = "none";
+    }
+    });
+    
+    async function crearElem() {
+      
+      let eData = await enviarDatos()
+    eData.forEach(sData=>{
 
+      const li = document.createElement("li");//constante de la lista
+      const p = document.createElement("p");//parrafo que va adentro de la lista
+      p.textContent = text;
+      
+    li.appendChild(p);
+    li.appendChild(addDeleteBtn());
+    ul.appendChild(li);
+    })
+ 
+    }
 
-
+    crearElem()
 
 
 
