@@ -1,9 +1,6 @@
 //post//
-
 export async function enviarDatos(input) {
-    
     try {
-      
         const response = await fetch('http://localhost:3000/api/task', {
             method: 'POST',
             headers: {

@@ -5,51 +5,31 @@ const empty = document.querySelector(".empty");//este es el texto cuando no hay 
 export const postFuntion = input.value 
 import { obtenerTareas } from "./linkappi";
 import { enviarDatos } from "./postData";
-import { getTareas } from "./getData";
 import { borrarData } from "./deleteData";
-
-
 
 //funcion para que aparescan las tareas en la lista
 addBtn.addEventListener("click", async(e) => {
   e.preventDefault();//prevencion para que no se recargue la pagina
   const text = input.value;
   if (text !== "") {
-
     console.log(text)
     await enviarDatos(text)
-  
     input.value = "";
     empty.style.display = "none";
-
-
-
-
     }
     });
-
-
     async function crearElem(text) {
-
-
       let task =  await obtenerTareas()
-
       console.log(task)
-      
-     
-      
       for (let index = 0; index < task.length; index++) {
         const li = document.createElement("li");//constante de la lista
         const p = document.createElement("p");//parrafo que va adentro de la lista
         p.innerText=task[index].task
-        
     li.appendChild(p);
     li.appendChild(addDeleteBtn());
     ul.appendChild(li);
     }
-    }
-     
-    
+    } 
     crearElem()
 //funcion de borrar las tareas de la lista
 function addDeleteBtn() {
