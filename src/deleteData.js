@@ -6,9 +6,8 @@ try {
             "Content-type": "application/json;",
           },
         body: JSON.stringify(tarea)
-        
     });
-    let datos1 = await response.json()
+  //  let datos1 = await response.json()
 } catch (error) {
     console.error(error);
 }

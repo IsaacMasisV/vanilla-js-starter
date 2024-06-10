@@ -1,16 +1,9 @@
- async function getTareas(id) {
-    const response = await fetch("http://localhost:3000/api/task",{
-        method: "GET",
-        headers: {
-            "Content-type": "application/json;",
-        }
-        })
+ async function getTareas() {
     try {
-         
-        const response = await fetch("http://localhost:3000/api/todo")
+            const response = await fetch("http://localhost:3000/api/task")
             let listaTareas = await response.json()
             listaTareas.forEach(element =>{
-            const li = document.createElement("h2");
+            const li = document.createElement("p");
             const checkbox = document.createElement("input")
             document.createElement("label");
             const BtnBorrar = document.createElement("button")
@@ -19,21 +12,18 @@
             checkbox.type= "checkbox"
             checkbox.className="check"
             li.className="tareas"
-            p.innerHTML = element.tarea;
-            li.appendchild(checkbox)
-            li.appendchild(p);
-            li.appendchild(BtnBorrar)
-            lista.appendchild(li);
+           
+           // p.innerHTML = element.tarea;
+           // li.appendchild(checkbox)
+           // li.appendchild(p);
+           // li.appendchild(BtnBorrar)
+          //  lista.appendchild(li);
             BtnBorrar,addEventListener("click", ()=>{
-            deleteData(element.id)
-            location.reload()
+           // deleteData(eleme
             });
-
         });
-      
     }catch (error) {
         console.error(error);
         }
-        
         };
-        export { getTareas };
+        export {getTareas}
