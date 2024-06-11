@@ -6,7 +6,7 @@ export const postFuntion = input.value
 import { obtenerTareas } from "./linkappi";
 import { enviarDatos } from "./postData";
 import { borrarData } from "./deleteData";
-
+crearElem()
 //funcion para que aparescan las tareas en la lista
 addBtn.addEventListener("click", async(e) => {
   e.preventDefault();//prevencion para que no se recargue la pagina
@@ -14,11 +14,23 @@ addBtn.addEventListener("click", async(e) => {
   if (text !== "") {
     console.log(text)
     await enviarDatos(text)
+    
     input.value = "";
     empty.style.display = "none";
+     
+
+    const li = document.createElement("li");//constante de la lista
+    const p = document.createElement("p");//parrafo que va adentro de la lista
+     p.innerText=text
+      li.appendChild(p);
+      li.appendChild(addDeleteBtn());
+      ul.appendChild(li);
+     
+
     }
     });
-    async function crearElem(text) {
+    async function crearElem() {
+      console.log(131)
       let task =  await obtenerTareas()
       console.log(task)
       for (let index = 0; index < task.length; index++) {
@@ -30,7 +42,7 @@ addBtn.addEventListener("click", async(e) => {
     ul.appendChild(li);
     }
     } 
-    crearElem()
+  
 //funcion de borrar las tareas de la lista
 function addDeleteBtn() {
   const btnBorrar = document.createElement("button");
@@ -50,4 +62,4 @@ window.addEventListener('load', async () => {
     obtenerTareas()
 });
 
-export{addBtn}  
+export{addBtn, crearElem}  

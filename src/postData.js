@@ -1,4 +1,7 @@
 //post//
+
+import {  crearElem }from "./index"
+
 export async function enviarDatos(input) {
     try {
         const response = await fetch('http://localhost:3000/api/task', {
@@ -14,7 +17,10 @@ export async function enviarDatos(input) {
             throw new Error('Error al enviar los datos');
         }
         const data = await response.json();
+      
+      
         console.log('Tarea enviada:', data);
+  
     } catch (error) {
         console.error('Error al enviar tarea:', error);
         }
