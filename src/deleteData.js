@@ -19,4 +19,4 @@ try {
     
 }
 }
-export {borrarData}
+export {borrarData} 
