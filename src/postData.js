@@ -2,7 +2,7 @@
 
 import {  crearElem }from "./index"
 
-export async function enviarDatos(input) {
+export async function enviarDatos(CorreoE, Usuario1, Contraseña1) {
     try {
         const response = await fetch('http://localhost:3000/api/task', {
             method: 'POST',
@@ -10,7 +10,9 @@ export async function enviarDatos(input) {
                 "Content-type": "application/json; charset=UTF-8"
               },
         body: JSON.stringify({
-            task:input
+          correo: CorreoE.value, Usuario: Usuario1.value, contra: Contraseña1.value
+          
+
         })
         });
         if (!response.ok) {

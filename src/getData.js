@@ -1,4 +1,3 @@
-/**
 async function obtenerTareas() {
     try {
         const response = await fetch('http://localhost:3000/api/task');
@@ -12,4 +11,3 @@ async function obtenerTareas() {
     }
 }
 export { obtenerTareas };
- */
