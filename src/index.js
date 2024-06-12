@@ -132,6 +132,7 @@ addBtn.addEventListener("click", async(e) => {
     empty.style.display = "none";
      
 
+    
     const li = document.createElement("li");//constante de la lista
     const p = document.createElement("p");//parrafo que va adentro de la lista
      p.innerText=text
@@ -156,6 +157,7 @@ addBtn.addEventListener("click", async(e) => {
     }
     } 
   
+
 //funcion de borrar las tareas de la lista
 function addDeleteBtn() {
   const btnBorrar = document.createElement("button");
