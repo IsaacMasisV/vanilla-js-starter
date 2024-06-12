@@ -33,14 +33,6 @@ function register() {
     caja__traseraLogin.style.opacity = "1";
 }
 
-
-
-
-
-
-
-
-
 const Registrojs = document.querySelector('#Registrojs')
 Registrojs.addEventListener('submit', (e) =>{
     e.preventDefault()
@@ -116,7 +108,7 @@ const addBtn = document.querySelector(".agg-Btn");//boton de agregar
 const ul = document.querySelector("ul");//esta es la lista donde van las tareas
 const empty = document.querySelector(".empty");//este es el texto cuando no hay tareas
 export const postFuntion = input.value 
-import { obtenerTareas } from "./linkappi";
+import { obtenerTareas } from "./getData";
 import { enviarDatos } from "./postData";
 import { borrarData } from "./deleteData";
 crearElem()
@@ -132,7 +124,7 @@ addBtn.addEventListener("click", async(e) => {
     empty.style.display = "none";
      
 
-    
+
     const li = document.createElement("li");//constante de la lista
     const p = document.createElement("p");//parrafo que va adentro de la lista
      p.innerText=text
